@@ -1,0 +1,24 @@
+CREATE TABLE Student (
+    Student_ID INT PRIMARY KEY,
+    Student_Name VARCHAR(100),
+    CGPA DECIMAL(3,2),
+    Attendance_Percentage INT,
+    Active_Arrears INT
+);
+
+CREATE TABLE Company (
+    Company_ID INT PRIMARY KEY,
+    Company_Name VARCHAR(100),
+    Min_CGPA DECIMAL(3,2),
+    Min_Attendance INT,
+    Max_Active_Arrears INT
+);
+
+CREATE TABLE Eligibility (
+    Eligibility_ID INT PRIMARY KEY,
+    Student_ID INT,
+    Company_ID INT,
+    Eligibility_Status VARCHAR(20),
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID),
+    FOREIGN KEY (Company_ID) REFERENCES Company(Company_ID)
+);
